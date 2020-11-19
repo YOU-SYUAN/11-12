@@ -52,12 +52,13 @@ $result=getJobList($bossMode);
 	<td>-</td>
   </tr>
 <?php
-	echo "<tr style='background-color:$bgColor;'><td>" . $rs['id'] . "</td>";
+while (	$rs=mysqli_fetch_assoc($result)) {
+	echo "<tr><td>" . $rs['id'] . "</td>";
 	echo "<td>{$rs['stuid']}</td>";
 	echo "<td>" , htmlspecialchars($rs['contact']), "</td>";
 	echo "<td>" , htmlspecialchars($rs['famstatus']), "</td>";
-	echo "<td>{$jobStatus[$rs['content']]}</td>" ;
-	echo "<td><font color='$fontColor'>{$rs['status']}</font></td><td>";
+	echo "<td>{$rs['content']}</td>" ;
+	echo "<td>{$rs['status']}</td><td>";
 	switch($rs['status']) {
 		//審核中
 		case 0:
@@ -83,6 +84,7 @@ $result=getJobList($bossMode);
 			break;
 	}
 	echo "</td></tr>";
+}
 ?>
 </table>
 </body>

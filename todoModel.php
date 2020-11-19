@@ -27,7 +27,7 @@ function updateJob($id,$title,$msg, $urgent) {
 function getJobList($bossMode) {
 	global $conn;
 	if ($bossMode == 1) {
-		$sql = "select * from student order by status desc;";
+		$sql = "select * from student;";
 	} else {
 		$sql = "select * from student where status = 0;";
 	}
