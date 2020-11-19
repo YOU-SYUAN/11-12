@@ -56,19 +56,13 @@ function getJobDetail($id) {
 
 function setFinished($jobID) {
 	global $conn;
-	$sql = "update student set status = 1 where id=$jobID and status = 0;";
+	$sql = "update student set status = 2 where id=$jobID and status = 0;";
 	mysqli_query($conn,$sql) or die("MySQL query error"); //執行SQL
 }
 
 function rejectJob($jobID){
 	global $conn;
-	$sql = "update student set status = 0 where id=$jobID and status = 1;";
-	mysqli_query($conn,$sql);
-}
-
-function setClosed($jobID) {
-	global $conn;
-	$sql = "update student set status = 2 where id=$jobID and status = 1;";
+	$sql = "update student set status = 0 where id=$jobID and status = 0;";
 	mysqli_query($conn,$sql);
 }
 
