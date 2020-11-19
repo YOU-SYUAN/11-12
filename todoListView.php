@@ -6,9 +6,10 @@ if (! isset($_SESSION['uID']) or $_SESSION['uID']<="") {
 //校長
 if ($_SESSION['uID']=='boss'){
 	$bossMode = 1;
+}
 //導師秘書
-else if($_SESSION['uID']=='secret')
-	$bossMode = 2
+else if($_SESSION['uID']=='secret') {
+	$bossMode = 2;
 //學生
 } else {
 	$bossMode=0;
@@ -23,7 +24,7 @@ if (isset($_GET['m'])){
 
 
 $result=getJobList($bossMode);
-$jobStatus = array('未完成','已完成','已結案','已取消');
+//$jobStatus = array('未完成','已完成','已結案','已取消');
 
 
 ?>
@@ -82,7 +83,6 @@ $jobStatus = array('未完成','已完成','已結案','已取消');
 			break;
 	}
 	echo "</td></tr>";
-}
 ?>
 </table>
 </body>
