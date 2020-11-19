@@ -9,7 +9,7 @@ function addJob($stuid, $contact, $famstatus, $content, $status) {
 
 function cancelJob($jobID) {
 	global $conn;
-	$sql = "update student set status = 3 where id=$jobID and status <> 2;";
+	$sql = "update student set status = 3 where id=$jobID and status =2;";
 	mysqli_query($conn,$sql);
 	//return T/F
 }
