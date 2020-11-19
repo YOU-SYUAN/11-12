@@ -3,8 +3,8 @@ require_once("dbconnect.php");
 
 function addJob($stuid, $contact, $famstatus, $content) {
 	global $conn;
-	$sql = "insert into student (stuid, contact, famstatus, content, status) values ('$stuid', '$contact', '$famstatus', '$content', 0;";
-	mysqli_query($conn, $sql) or die("Insert failed, SQL query error"); //執行SQL	
+	$sql = "insert into student (stuid, contact, famstatus, content, status) values ('$stuid', '$contact', '$famstatus', '$content', 0);";
+	mysqli_query($conn, $sql) or die("Insert failed, SQL query"); //執行SQL	
 }
 
 function cancelJob($jobID) {
