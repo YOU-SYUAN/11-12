@@ -25,10 +25,10 @@ if (! $rs) {
 <form method="post" action="todoUpdControl.php">
 
 	  <input type='hidden' name='id' value='<?php echo $id ?>'>
-      title: <input name="stuid" type="text" id="msg" value="<?php echo htmlspecialchars($rs['stuid']);?>" /> <br>
-      task content: <input name="contact" type="text" id="msg" value="<?php echo htmlspecialchars($rs['contact']);?>" /> <br>
-	  task content: <input name="famstatus" type="text" id="msg" value="<?php echo htmlspecialchars($rs['famstatus']);?>" /> <br>
-	  task content: <input name="content" type="text" id="msg" value="<?php echo htmlspecialchars($rs['content']);?>" /> <br>
+      stuid: <input name="stuid" type="text" id="msg" value="<?php echo htmlspecialchars($rs['stuid']);?>" /> <br>
+      contact: <input name="contact" type="text" id="msg" value="<?php echo htmlspecialchars($rs['contact']);?>" /> <br>
+	  famstatus: <input name="famstatus" type="text" id="msg" value="<?php echo htmlspecialchars($rs['famstatus']);?>" /> <br>
+	  content: <input name="content" type="text" id="msg" value="<?php echo htmlspecialchars($rs['content']);?>" /> <br>
 
       <input type="submit" name="Submit" value="送出" />
 	</form>
