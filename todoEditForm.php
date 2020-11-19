@@ -1,8 +1,8 @@
 <?php
 session_start();
-if (! isset($_SESSION['uID']) or $_SESSION['uID']!="boss") {
-	header("Location: loginForm.php");
-} 
+//if (! isset($_SESSION['uID']) or $_SESSION['uID']!="boss") {
+//	header("Location: loginForm.php");
+//} 
 
 require("todoModel.php");
 
@@ -25,20 +25,11 @@ if (! $rs) {
 <form method="post" action="todoUpdControl.php">
 
 	  <input type='hidden' name='id' value='<?php echo $id ?>'>
-
-      task title: <input name="title" type="text" id="title" value="<?php echo htmlspecialchars($rs['title']);?>" /> <br>
-
-      task description: <input name="msg" type="text" id="msg" value="<?php echo htmlspecialchars($rs['content']);?>" /> <br>
-
-	  Urgent Level: <select  name="urgent" type="select" id="urgent" /> 
-				<?php
-					echo "<option value='{$rs['urgent']}'>{$rs['urgent']}</option>";
-				?>
-					<option value='一般'>一般</option>
-					<option value='重要'>重要</option>
-					<option value='緊急'>緊急</option>
-					</select>
-	  <br>
+      title: <input name="stuid" type="text" id="msg" value="<?php echo htmlspecialchars($rs['stuid']);?>" /> <br>
+      task content: <input name="contact" type="text" id="msg" value="<?php echo htmlspecialchars($rs['contact']);?>" /> <br>
+	  task content: <input name="famstatus" type="text" id="msg" value="<?php echo htmlspecialchars($rs['famstatus']);?>" /> <br>
+	  task content: <input name="content" type="text" id="msg" value="<?php echo htmlspecialchars($rs['content']);?>" /> <br>
+	  task content: <input name="status" type="text" id="msg" value="<?php echo htmlspecialchars($rs['status']);?>" /> <br>
 
       <input type="submit" name="Submit" value="送出" />
 	</form>

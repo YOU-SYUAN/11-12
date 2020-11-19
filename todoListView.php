@@ -63,8 +63,8 @@ while (	$rs=mysqli_fetch_assoc($result)) {
 		//審核中
 		case 0:
 			if ($bossMode == 1) {
-				echo "<a href='todoSetControl.php?act = finish&id={$rs['id']}'>Agree</a>  ";	
-				echo "<a href='todoSetControl.php?act=cancel&id={$rs['id']}'>Disagree</a>  " ;
+				echo "<a href='todoSetControl.php?act=finish&id={$rs['id']}'>Agree</a>  ";	
+				echo "<a href='todoSetControl.php?act=reject&id={$rs['id']}'>Disagree</a>  " ;
 			}
 			else if($bossMode == 2) {
 				echo "<a href='todoEditForm.php?id={$rs['id']}'>Edit</a>  ";
@@ -78,7 +78,7 @@ while (	$rs=mysqli_fetch_assoc($result)) {
 		//結案
 		case 1:
 			//echo "<a href='todoSetControl.php?act=reject&id={$rs['id']}'>Reject</a>  ";
-			echo "<a href='todoSetControl.php?act=close&id={$rs['id']}'>Close</a>  ";
+			echo "<a href='todoSetControl.php?act=cancel&id={$rs['id']}'>Close</a>  ";
 			break;
 		default:
 			break;

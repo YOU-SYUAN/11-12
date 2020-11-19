@@ -1,9 +1,9 @@
 <?php
 require_once("dbconnect.php");
 
-function addJob($title,$msg, $urgent) {
+function addJob($stuid, $contact, $famstatus, $content, $status) {
 	global $conn;
-	$sql = "insert into student (title, content,urgent, addTime, status) values ('$title','$msg', '$urgent', NOW(),0);";
+	$sql = "insert into student (stuid, contact, famstatus, content, status) values ('$stuid', '$contact', '$famstatus', '$content', '$status';";
 	mysqli_query($conn, $sql) or die("Insert failed, SQL query error"); //執行SQL	
 }
 
@@ -14,12 +14,12 @@ function cancelJob($jobID) {
 	//return T/F
 }
 
-function updateJob($id,$title,$msg, $urgent) {
+function updateJob($id, $stuid, $contact, $famstatus, $content, $status) {
 	global $conn;
 	if ($id== -1) {
-		addJob($title,$msg, $urgent);
+		addJob($stuid, $contact, $famstatus, $content, $status);
 	} else {
-		$sql = "update student set title='$title', content='$msg', urgent='$urgent' where id=$id;";
+		$sql = "update student set stuid='$stuid', contact='$contact', famstatus='$famstatus', content='$content', status ='$status' where id=$id;";
 		mysqli_query($conn, $sql) or die("Insert failed, SQL query error"); //執行SQL
 	}
 }
@@ -40,12 +40,14 @@ function getJobDetail($id) {
 	if ($id == -1) { //-1 stands for adding a new record
 		$rs=[
 			"id" => -1,
-			"title" => "new title",
-			"content" => "job description",
-			"urgent" => "一般"
+			"stuid" => "new title",
+			"contact" => "job description",
+			"famstatus" => "一般",
+			"content" => "m",
+			"status" => "0"
 		];
 	} else {
-		$sql = "select id, title, content, urgent from student where id=$id;";
+		$sql = "select id, stuid, contact, famstatus, content, status from student where id=$id;";
 		$result=mysqli_query($conn,$sql) or die("DB Error: Cannot retrieve message.");
 		$rs=mysqli_fetch_assoc($result);
 	}
