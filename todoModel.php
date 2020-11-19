@@ -29,7 +29,7 @@ function getJobList($bossMode) {
 	if ($bossMode == 1) {
 		$sql = "select * from student;";
 	} else {
-		$sql = "select * from student where status = 0;";
+		$sql = "select * from student where status = 0 and status=1 and status=2;";
 	}
 	$result=mysqli_query($conn,$sql) or die("DB Error: Cannot retrieve message.");
 	return $result;
@@ -62,7 +62,7 @@ function setFinished($jobID) {
 
 function rejectJob($jobID){
 	global $conn;
-	$sql = "update student set status = 0 where id=$jobID and status = 0;";
+	$sql = "update student set status = 1 where id=$jobID and status = 0;";
 	mysqli_query($conn,$sql);
 }
 
