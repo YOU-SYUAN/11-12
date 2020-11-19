@@ -80,8 +80,10 @@ while (	$rs=mysqli_fetch_assoc($result)) {
 			echo "退回";
 			break;
 		case 2:
+			if($bossMode == 1){
 			//echo "<a href='todoSetControl.php?act=reject&id={$rs['id']}'>Reject</a>  ";
-			echo "<a href='todoSetControl.php?act=cancel&id={$rs['id']}'>Close</a>  ";
+				echo "<a href='todoSetControl.php?act=cancel&id={$rs['id']}'>Close</a>  ";
+			}
 			break;
 		default:
 			break;
