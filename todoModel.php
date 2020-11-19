@@ -1,9 +1,9 @@
 <?php
 require_once("dbconnect.php");
 
-function addJob($stuid, $contact, $famstatus, $content, $status) {
+function addJob($stuid, $contact, $famstatus, $content) {
 	global $conn;
-	$sql = "insert into student (stuid, contact, famstatus, content, status) values ('$stuid', '$contact', '$famstatus', '$content', '$status';";
+	$sql = "insert into student (stuid, contact, famstatus, content, status) values ('$stuid', '$contact', '$famstatus', '$content', 0;";
 	mysqli_query($conn, $sql) or die("Insert failed, SQL query error"); //執行SQL	
 }
 
@@ -14,10 +14,10 @@ function cancelJob($jobID) {
 	//return T/F
 }
 
-function updateJob($id, $stuid, $contact, $famstatus, $content, $status) {
+function updateJob($id, $stuid, $contact, $famstatus, $content) {
 	global $conn;
 	if ($id== -1) {
-		addJob($stuid, $contact, $famstatus, $content, $status);
+		addJob($stuid, $contact, $famstatus, $content);
 	} else {
 		$sql = "update student set stuid='$stuid', contact='$contact', famstatus='$famstatus', content='$content', status ='$status' where id=$id;";
 		mysqli_query($conn, $sql) or die("Insert failed, SQL query error"); //執行SQL

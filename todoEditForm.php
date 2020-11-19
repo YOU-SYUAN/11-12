@@ -29,7 +29,6 @@ if (! $rs) {
       task content: <input name="contact" type="text" id="msg" value="<?php echo htmlspecialchars($rs['contact']);?>" /> <br>
 	  task content: <input name="famstatus" type="text" id="msg" value="<?php echo htmlspecialchars($rs['famstatus']);?>" /> <br>
 	  task content: <input name="content" type="text" id="msg" value="<?php echo htmlspecialchars($rs['content']);?>" /> <br>
-	  task content: <input name="status" type="text" id="msg" value="<?php echo htmlspecialchars($rs['status']);?>" /> <br>
 
       <input type="submit" name="Submit" value="送出" />
 	</form>
