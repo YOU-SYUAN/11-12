@@ -77,6 +77,9 @@ while (	$rs=mysqli_fetch_assoc($result)) {
 			break;
 		//結案
 		case 1:
+			echo "退回";
+			break;
+		case 2:
 			//echo "<a href='todoSetControl.php?act=reject&id={$rs['id']}'>Reject</a>  ";
 			echo "<a href='todoSetControl.php?act=cancel&id={$rs['id']}'>Close</a>  ";
 			break;

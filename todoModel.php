@@ -29,7 +29,7 @@ function getJobList($bossMode) {
 	if ($bossMode == 1) {
 		$sql = "select * from student;";
 	} else {
-		$sql = "select * from student where status = 0 and status=1 and status=2;";
+		$sql = "select * from student where status = 0 or status = 1 or status=2;";
 	}
 	$result=mysqli_query($conn,$sql) or die("DB Error: Cannot retrieve message.");
 	return $result;
