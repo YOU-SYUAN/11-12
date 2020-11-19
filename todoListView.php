@@ -3,8 +3,13 @@ session_start();
 if (! isset($_SESSION['uID']) or $_SESSION['uID']<="") {
 	header("Location: loginForm.php");
 } 
+//校長
 if ($_SESSION['uID']=='boss'){
 	$bossMode = 1;
+//導師秘書
+else if($_SESSION['uID']=='secret')
+	$bossMode = 2
+//學生
 } else {
 	$bossMode=0;
 }
@@ -38,55 +43,39 @@ $jobStatus = array('未完成','已完成','已結案','已取消');
 <table width="200" border="1">
   <tr>
     <td>id</td>
-    <td>title</td>
-    <td>message</td>
-	<td>Urgency</td>
-    <td>status</td>
-	<td>time used</td>
+    <td>stuid</td>
+    <td>contact</td>
+	<td>famstatus</td>
+    <td>content</td>
+	<td>status</td>
 	<td>-</td>
   </tr>
 <?php
-
-while (	$rs=mysqli_fetch_assoc($result)) {
-	switch($rs['urgent']) {
-		case '緊急':
-			$bgColor="#ff9999";
-			$timeLimit = 60;
-			break;
-		case '重要':
-			$bgColor="#99ff99";
-			$timeLimit = 120;
-			break;
-		default:
-			$bgColor="#ffffff";
-			$timeLimit = 180;
-			break;
-	}
-
-	if ($rs['diff']>$timeLimit) {
-		$fontColor="red";
-	} else {
-		$fontColor="black";		
-	}
-
 	echo "<tr style='background-color:$bgColor;'><td>" . $rs['id'] . "</td>";
-	echo "<td>{$rs['title']}</td>";
-	echo "<td>" , htmlspecialchars($rs['content']), "</td>";
-	echo "<td>" , htmlspecialchars($rs['urgent']), "</td>";
-	echo "<td>{$jobStatus[$rs['status']]}</td>" ;
-	echo "<td><font color='$fontColor'>{$rs['diff']}</font></td><td>";
+	echo "<td>{$rs['stuid']}</td>";
+	echo "<td>" , htmlspecialchars($rs['contact']), "</td>";
+	echo "<td>" , htmlspecialchars($rs['famstatus']), "</td>";
+	echo "<td>{$jobStatus[$rs['content']]}</td>" ;
+	echo "<td><font color='$fontColor'>{$rs['status']}</font></td><td>";
 	switch($rs['status']) {
+		//審核中
 		case 0:
-			if ($bossMode) {
-				echo "<a href='todoEditForm.php?id={$rs['id']}'>Edit</a>  ";	
-				echo "<a href='todoSetControl.php?act=cancel&id={$rs['id']}'>Cancel</a>  " ;
-			} else {
-				echo "<a href='todoSetControl.php?act=finish&id={$rs['id']}'>Finish</a>  ";
+			if ($bossMode == 1) {
+				echo "<a href='todoSetControl.php?act = finish&id={$rs['id']}'>Agree</a>  ";	
+				echo "<a href='todoSetControl.php?act=cancel&id={$rs['id']}'>Disagree</a>  " ;
 			}
+			else if($bossMode == 2) {
+				echo "<a href='todoEditForm.php?id={$rs['id']}'>Edit</a>  ";
+			}
+			/*else {
+				echo "<a href='todoSetControl.php?act=finish&id={$rs['id']}'>Add</a>  ";
+				echo "<a href='todoSetControl.php?act=finish&id={$rs['id']}'>Search</a>  ";
+			}*/
 
 			break;
+		//結案
 		case 1:
-			echo "<a href='todoSetControl.php?act=reject&id={$rs['id']}'>Reject</a>  ";
+			//echo "<a href='todoSetControl.php?act=reject&id={$rs['id']}'>Reject</a>  ";
 			echo "<a href='todoSetControl.php?act=close&id={$rs['id']}'>Close</a>  ";
 			break;
 		default:
