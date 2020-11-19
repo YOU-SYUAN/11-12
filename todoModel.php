@@ -42,7 +42,7 @@ function getJobDetail($id) {
 			"id" => -1,
 			"stuid" => "new title",
 			"contact" => "job description",
-			"famstatus" => "一般",
+			"famstatus" => "低收入戶",
 			"content" => "m",
 			"status" => "0"
 		];

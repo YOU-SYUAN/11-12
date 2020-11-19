@@ -40,7 +40,7 @@ $result=getJobList($bossMode);
 <p>my Todo List !! </p>
 <hr />
 <div><?php echo $msg; ?></div><hr>
-<a href="loginForm.php">login</a> | <a href="todoEditForm.php?id=-1">Add Task</a> <br>
+<a href="loginForm.php">login</a> | <a href="todoEditForm.php?id=-1">申請補助</a> <br>
 <table width="200" border="1">
   <tr>
     <td>id</td>
