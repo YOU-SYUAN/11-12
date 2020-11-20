@@ -40,8 +40,8 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`id`, `loginID`, `password`) VALUES
 (1, 'student', 123),
-(2, 'secret', 123),
-(3, 'boss', 123),
+(2, 'secretary', 123),
+(3, 'principal', 123),
 (4, 'teacher', 123);
 
 --

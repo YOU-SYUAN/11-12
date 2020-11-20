@@ -21,7 +21,7 @@ if (! $rs) {
 <title>無標題文件</title>
 </head>
 <body>
-<h1>貧困學生補助經費申請表</h1>
+<h1>導師訪視說明</h1>
 <form method="post" action="todoUpdControl.php">
 	  <input type='hidden' name='id' value='<?php echo $id ?>'>
       stuid: <input name="stuid" type="text" id="msg" value="<?php echo htmlspecialchars($rs['stuid']);?>" readonly="readonly" /> <br>

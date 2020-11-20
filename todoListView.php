@@ -4,11 +4,11 @@ if (! isset($_SESSION['uID']) or $_SESSION['uID']<="") {
 	header("Location: loginForm.php");
 } 
 //校長
-if ($_SESSION['uID']=='boss'){
+if ($_SESSION['uID']=='principal'){
 	$bossMode = 1;
 }
 //導師秘書
-else if($_SESSION['uID']=='secret') {
+else if($_SESSION['uID']=='secretary') {
 	$bossMode = 2;
 //老師
 } else if($_SESSION['uID']=='teacher'){
@@ -20,7 +20,7 @@ require("todoModel.php");
 if (isset($_GET['m'])){
 	$msg="<font color='red'>" . $_GET['m'] . "</font>";
 } else {
-	$msg="Good morning";
+	$msg="Good morning ". $_SESSION['uID'];
 }
 
 
@@ -39,7 +39,7 @@ $jobStatus = array('審查中','已退回','已成功','已結案');
 
 <body>
 
-<p>my Todo List !! </p>
+<h1>學生申請狀況</h1>
 <hr />
 <div><?php echo $msg; ?></div><hr>
 <a href="loginForm.php">login</a>
