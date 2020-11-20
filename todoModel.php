@@ -14,12 +14,12 @@ function cancelJob($jobID) {
 	//return T/F
 }
 
-function updateJob($id, $stuid, $contact, $famstatus, $content) {
+function updateJob($id, $stuid, $contact, $famstatus, $content,$commit) {
 	global $conn;
 	if ($id== -1) {
 		addJob($stuid, $contact, $famstatus, $content);
 	} else {
-		$sql = "update student set stuid='$stuid', contact='$contact', famstatus='$famstatus', content='$content', status ='$status' where id=$id;";
+		$sql = "update student set commit='$commit' where id=$id;";
 		mysqli_query($conn, $sql) or die("Insert failed, SQL query error"); //執行SQL
 	}
 }
@@ -40,14 +40,15 @@ function getJobDetail($id) {
 	if ($id == -1) { //-1 stands for adding a new record
 		$rs=[
 			"id" => -1,
-			"stuid" => "new title",
-			"contact" => "job description",
+			"stuid" => "studentID",
+			"contact" => "Your contacter",
 			"famstatus" => "低收入戶",
-			"content" => "m",
+			"content" => "content",
+			"commit" => "",
 			"status" => "0"
 		];
 	} else {
-		$sql = "select id, stuid, contact, famstatus, content, status from student where id=$id;";
+		$sql = "select id, stuid, contact, famstatus, content,commit, status from student where id=$id;";
 		$result=mysqli_query($conn,$sql) or die("DB Error: Cannot retrieve message.");
 		$rs=mysqli_fetch_assoc($result);
 	}

@@ -22,9 +22,9 @@ if (isset($_GET['m'])){
 }
 
 
-
 $result=getJobList($bossMode);
-//$jobStatus = array('未完成','已完成','已結案','已取消');
+
+$jobStatus = array('審查中','已退回','已成功','已結案');
 
 
 ?>
@@ -40,25 +40,30 @@ $result=getJobList($bossMode);
 <p>my Todo List !! </p>
 <hr />
 <div><?php echo $msg; ?></div><hr>
-<a href="loginForm.php">login</a> | <a href="todoEditForm.php?id=-1">申請補助</a> <br>
-<table width="200" border="1">
+<a href="loginForm.php">login</a>
+<table width="600" border="1">
   <tr>
     <td>id</td>
     <td>stuid</td>
     <td>contact</td>
 	<td>famstatus</td>
     <td>content</td>
+	<td>commit</td>
 	<td>status</td>
 	<td>-</td>
   </tr>
 <?php
+if($bossMode == 0){
+	echo "<a href='Addtisk.php?id=-1'>Add Task</a>";
+}
 while (	$rs=mysqli_fetch_assoc($result)) {
 	echo "<tr><td>" . $rs['id'] . "</td>";
 	echo "<td>{$rs['stuid']}</td>";
 	echo "<td>" , htmlspecialchars($rs['contact']), "</td>";
 	echo "<td>" , htmlspecialchars($rs['famstatus']), "</td>";
 	echo "<td>{$rs['content']}</td>" ;
-	echo "<td>{$rs['status']}</td><td>";
+	echo "<td>" , htmlspecialchars($rs['commit']), "</td>";
+	echo "<td>{$jobStatus[$rs['status']]}</td><td>";
 	switch($rs['status']) {
 		//審核中
 		case 0:
@@ -67,28 +72,25 @@ while (	$rs=mysqli_fetch_assoc($result)) {
 				echo "<a href='todoSetControl.php?act=reject&id={$rs['id']}'>Disagree</a>  " ;
 			}
 			else if($bossMode == 2) {
-				echo "<a href='todoEditForm.php?id={$rs['id']}'>Edit</a>  ";
+				echo "<a href='todoEditForm.php?id={$rs['id']}'>Commit</a>  ";
 			}
 			/*else {
-				echo "<a href='todoSetControl.php?act=finish&id={$rs['id']}'>Add</a>  ";
-				echo "<a href='todoSetControl.php?act=finish&id={$rs['id']}'>Search</a>  ";
+				echo "</td></tr>";
+				echo "<a href='todoEditForm.php?id=-1'>Add Task</a>";
 			}*/
-
 			break;
 		//結案
-		case 1:
-			echo "退回";
-			break;
 		case 2:
-			if($bossMode == 1){
-			//echo "<a href='todoSetControl.php?act=reject&id={$rs['id']}'>Reject</a>  ";
+			if ($bossMode == 1) {
+				//echo "<a href='todoSetControl.php?act=reject&id={$rs['id']}'>Reject</a>  ";
 				echo "<a href='todoSetControl.php?act=cancel&id={$rs['id']}'>Close</a>  ";
 			}
 			break;
 		default:
 			break;
+		echo "</td></tr>";
 	}
-	echo "</td></tr>";
+	
 }
 ?>
 </table>
