@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- 資料庫： `1091_hw`
+-- 資料庫： `1119`
 --
 
 -- --------------------------------------------------------
@@ -34,6 +34,7 @@ CREATE TABLE `student` (
   `contact` varchar(10) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `famstatus` varchar(10) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `content` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `commit` text CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
   `status` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -41,8 +42,12 @@ CREATE TABLE `student` (
 -- 傾印資料表的資料 `student`
 --
 
-INSERT INTO `student` (`id`, `stuid`, `contact`, `famstatus`, `content`, `status`) VALUES
-(1, 'student1', 'm', '低收', '你好', 0);
+INSERT INTO `student` (`id`, `stuid`, `contact`, `famstatus`, `content`, `commit`, `status`) VALUES
+(1, 'student1', 'm', '低收入戶', '你好', 'commit', 3),
+(2, 'new title', 'job descri', '中低收入戶', 'm', 'commit', 2),
+(3, 'new title', 'job descri', '低收入戶', 'su3cl3a87', 'commit', 1),
+(4, '123456', 'my mother', '家庭突發因素', '我需要這筆錢', '好棒', 0),
+(5, 'myname', 'my mother', '家庭突發因素', '我好可憐', NULL, 0);
 
 --
 -- 已傾印資料表的索引
@@ -62,7 +67,7 @@ ALTER TABLE `student`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `student`
 --
 ALTER TABLE `student`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
