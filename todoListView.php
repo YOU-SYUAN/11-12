@@ -56,7 +56,7 @@ $jobStatus = array('審查中','已退回','已成功','已結案');
   </tr>
 <?php
 if($bossMode == 0){
-	echo "<a href='Addtisk.php?id=-1'>Add Task</a>";
+	echo "<a href='Addtisk.php?id=-1'>申請補助</a>";
 }
 while (	$rs=mysqli_fetch_assoc($result)) {
 	echo "<tr><td>" . $rs['id'] . "</td>";
