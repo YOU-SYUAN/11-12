@@ -26,7 +26,7 @@ if (! $rs) {
 	  <input type='hidden' name='id' value='<?php echo $id ?>'>
       stuid: <input name="stuid" type="text" id="msg" value="<?php echo htmlspecialchars($rs['stuid']);?>" readonly="readonly" /> <br>
       contact: <input name="contact" type="text" id="msg" value="<?php echo htmlspecialchars($rs['contact']);?>" readonly="readonly"/> <br>
-	  famstatus: <input name="contact" type="text" id="msg" value="<?php echo htmlspecialchars($rs['famstatus']);?>" readonly="readonly"/> <br>
+	  famstatus: <input name="famstatus" type="text" id="msg" value="<?php echo htmlspecialchars($rs['famstatus']);?>" readonly="readonly"/> <br>
 	  <!--<select  name="famstatus" type="select" id="famstatus" /> 
 				<?php
 					//echo "<option value='{$rs['famstatus']}'>{$rs['famtatus']}</option>";

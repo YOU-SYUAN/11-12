@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- 資料庫： `1091_hw`
+-- 資料庫： `1119`
 --
 
 -- --------------------------------------------------------
@@ -41,7 +41,8 @@ CREATE TABLE `user` (
 INSERT INTO `user` (`id`, `loginID`, `password`) VALUES
 (1, 'student', 123),
 (2, 'secret', 123),
-(3, 'boss', 123);
+(3, 'boss', 123),
+(4, 'teacher', 123);
 
 --
 -- 已傾印資料表的索引

@@ -19,7 +19,7 @@ function updateJob($id, $stuid, $contact, $famstatus, $content,$commit) {
 	if ($id== -1) {
 		addJob($stuid, $contact, $famstatus, $content);
 	} else {
-		$sql = "update student set commit='$commit' where id=$id;";
+		$sql = "update student set commit='$commit',content='$content' where id=$id;";
 		mysqli_query($conn, $sql) or die("Insert failed, SQL query error"); //執行SQL
 	}
 }
@@ -43,7 +43,7 @@ function getJobDetail($id) {
 			"stuid" => "studentID",
 			"contact" => "Your contacter",
 			"famstatus" => "低收入戶",
-			"content" => "content",
+			"content" => "",
 			"commit" => "",
 			"status" => "0"
 		];

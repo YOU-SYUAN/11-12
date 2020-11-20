@@ -31,7 +31,7 @@ $rs = getJobDetail($id);
 					<option value='中低收入戶'>中低收入戶</option>
 					<option value='家庭突發因素'>家庭突發因素</option>
 					</select> <br>
-	  content: <input name="content" type="text" id="msg" value="<?php echo htmlspecialchars($rs['content']);?>" /> <br>
+		<input name="content" type="hidden" id="msg" value="<?php echo htmlspecialchars($rs['content']);?>" /> 
        <input name="commit" type="hidden" id="msg" value="<?php echo htmlspecialchars($rs['commit']);?>" /> 
 	   <input name="status" type="hidden" id="msg" value="<?php echo htmlspecialchars($rs['status']);?>" /> 
 	  

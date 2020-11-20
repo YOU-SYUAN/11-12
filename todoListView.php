@@ -10,9 +10,11 @@ if ($_SESSION['uID']=='boss'){
 //導師秘書
 else if($_SESSION['uID']=='secret') {
 	$bossMode = 2;
-//學生
-} else {
-	$bossMode=0;
+//老師
+} else if($_SESSION['uID']=='teacher'){
+	$bossMode=3;
+}else{
+	$bossMode = 0;
 }
 require("todoModel.php");
 if (isset($_GET['m'])){
@@ -74,6 +76,10 @@ while (	$rs=mysqli_fetch_assoc($result)) {
 			else if($bossMode == 2) {
 				echo "<a href='todoEditForm.php?id={$rs['id']}'>Commit</a>  ";
 			}
+			else if($bossMode == 3){
+				echo "<a href='editcontent.php?id={$rs['id']}'>Description</a>  ";
+			}
+			
 			/*else {
 				echo "</td></tr>";
 				echo "<a href='todoEditForm.php?id=-1'>Add Task</a>";
