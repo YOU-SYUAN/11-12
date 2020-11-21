@@ -36,8 +36,8 @@ if (! $rs) {
 					<option value='家庭突發因素'>家庭突發因素</option>
 					</select> <br>-->
 	  content: <input name="content" type="text" id="msg" value="<?php echo htmlspecialchars($rs['content']);?>" readonly="readonly"/> <br>
-	  exresult:<input list = 'exresult' name = 'exresult'>
-	  <datalist  name="exresult" type="select" id="msg" />
+	  exresult:<input list = "exresult" name = "exresult", id ="msg">
+	  <datalist  name="exresult" id="exresult" />
 	  <option value='予以補助'>予以補助</option>
 	  <option value='未符合補助條件'>未符合補助條件</option>
 	  </datalist> <br>
