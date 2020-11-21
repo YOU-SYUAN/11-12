@@ -22,7 +22,7 @@ if (! $rs) {
 </head>
 <body>
 <h1>秘書審核</h1>
-<form method="post" action="todoUpdControl.php">
+<form method="post" action="commitcontrol.php">
 	  <input type='hidden' name='id' value='<?php echo $id ?>'>
       stuid: <input name="stuid" type="text" id="msg" value="<?php echo htmlspecialchars($rs['stuid']);?>" readonly="readonly" /> <br>
       contact: <input name="contact" type="text" id="msg" value="<?php echo htmlspecialchars($rs['contact']);?>" readonly="readonly"/> <br>
@@ -36,6 +36,11 @@ if (! $rs) {
 					<option value='家庭突發因素'>家庭突發因素</option>
 					</select> <br>-->
 	  content: <input name="content" type="text" id="msg" value="<?php echo htmlspecialchars($rs['content']);?>" readonly="readonly"/> <br>
+	  exresult:<input list = 'exresult' name = 'exresult'>
+	  <datalist  name="exresult" type="select" id="msg" />
+	  <option value='予以補助'>予以補助</option>
+	  <option value='未符合補助條件'>未符合補助條件</option>
+	  </datalist> <br>
 	  commit:<input name="commit" type="text" id="msg" value="<?php echo htmlspecialchars($rs['commit']);?>" /> <br>
 	   <input name="status" type="hidden" id="msg" value="<?php echo htmlspecialchars($rs['status']);?>" /> 
 	  

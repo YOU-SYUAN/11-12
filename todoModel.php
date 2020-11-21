@@ -14,16 +14,23 @@ function cancelJob($jobID) {
 	//return T/F
 }
 
-function updateJob($id, $stuid, $contact, $famstatus, $content,$commit) {
+function updateJob($id, $stuid, $contact, $famstatus, $content,$exresult,$commit) {
 	global $conn;
 	if ($id== -1) {
 		addJob($stuid, $contact, $famstatus, $content);
-	} else {
-		$sql = "update student set commit='$commit',content='$content' where id=$id;";
+	} /*else if($bossMode == 2){
+		$sql = "update student set commit='$commit',exresult='$exresult' where id=$id;";
 		mysqli_query($conn, $sql) or die("Insert failed, SQL query error"); //執行SQL
+	}*/ else {
+		$sql = "update student set content='$content' where id=$id;";
+		mysqli_query($conn, $sql) or die("Insert failed, SQL query error");
 	}
 }
-
+function editcommit($id, $stuid, $contact, $famstatus, $content,$exresult,$commit) {
+	global $conn;
+	$sql = "update student set commit='$commit',exresult='$exresult' where id=$id;";
+	mysqli_query($conn, $sql) or die("Insert failed, SQL query error");
+}
 function getJobList($bossMode) {
 	global $conn;
 	if ($bossMode == 1) {

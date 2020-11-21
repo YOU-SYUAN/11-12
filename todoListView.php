@@ -7,7 +7,7 @@ if (! isset($_SESSION['uID']) or $_SESSION['uID']<="") {
 if ($_SESSION['uID']=='principal'){
 	$bossMode = 1;
 }
-//導師秘書
+//秘書
 else if($_SESSION['uID']=='secretary') {
 	$bossMode = 2;
 //老師
@@ -50,6 +50,7 @@ $jobStatus = array('審查中','已退回','已成功','已結案');
     <td>contact</td>
 	<td>famstatus</td>
     <td>content</td>
+	<td>exresult</td>
 	<td>commit</td>
 	<td>status</td>
 	<td>-</td>
@@ -64,6 +65,7 @@ while (	$rs=mysqli_fetch_assoc($result)) {
 	echo "<td>" , htmlspecialchars($rs['contact']), "</td>";
 	echo "<td>" , htmlspecialchars($rs['famstatus']), "</td>";
 	echo "<td>{$rs['content']}</td>" ;
+	echo "<td>" , htmlspecialchars($rs['exresult']), "</td>";
 	echo "<td>" , htmlspecialchars($rs['commit']), "</td>";
 	echo "<td>{$jobStatus[$rs['status']]}</td><td>";
 	switch($rs['status']) {

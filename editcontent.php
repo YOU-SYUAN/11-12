@@ -23,10 +23,12 @@ if (! $rs) {
 <body>
 <h1>導師訪視說明</h1>
 <form method="post" action="todoUpdControl.php">
-	  <input type='hidden' name='id' value='<?php echo $id ?>'>
-      stuid: <input name="stuid" type="text" id="msg" value="<?php echo htmlspecialchars($rs['stuid']);?>" readonly="readonly" /> <br>
-      contact: <input name="contact" type="text" id="msg" value="<?php echo htmlspecialchars($rs['contact']);?>" readonly="readonly"/> <br>
-	  famstatus: <input name="famstatus" type="text" id="msg" value="<?php echo htmlspecialchars($rs['famstatus']);?>" readonly="readonly"/> <br>
+	content: <input name="content" type="text" id="msg" value="<?php echo htmlspecialchars($rs['content']);?>" /> <br>
+	<input type="submit" name="Submit" value="送出" />
+	<input type='hidden' name='id' value='<?php echo $id ?>'>
+    <input name="stuid" type="hidden" id="msg" value="<?php echo htmlspecialchars($rs['stuid']);?>" readonly="readonly" /> <br>
+    <input name="contact" type="hidden" id="msg" value="<?php echo htmlspecialchars($rs['contact']);?>" readonly="readonly"/> <br>
+	<input name="famstatus" type="hidden" id="msg" value="<?php echo htmlspecialchars($rs['famstatus']);?>" readonly="readonly"/> <br>
 	  <!--<select  name="famstatus" type="select" id="famstatus" /> 
 				<?php
 					//echo "<option value='{$rs['famstatus']}'>{$rs['famtatus']}</option>";
@@ -35,11 +37,11 @@ if (! $rs) {
 					<option value='中低收入戶'>中低收入戶</option>
 					<option value='家庭突發因素'>家庭突發因素</option>
 					</select> <br>-->
-	  content: <input name="content" type="text" id="msg" value="<?php echo htmlspecialchars($rs['content']);?>" /> <br>
-	  commit:<input name="commit" type="text" id="msg" value="<?php echo htmlspecialchars($rs['commit']);?>" readonly="readonly"/> <br>
-	   <input name="status" type="hidden" id="msg" value="<?php echo htmlspecialchars($rs['status']);?>" /> 
+	<input name="exresult" type="hidden" id="msg" value="<?php echo htmlspecialchars($rs['exresult']);?>" readonly="readonly"/> <br>
+	<input name="commit" type="hidden" id="msg" value="<?php echo htmlspecialchars($rs['commit']);?>" readonly="readonly"/> <br>
+	<input name="status" type="hidden" id="msg" value="<?php echo htmlspecialchars($rs['status']);?>" /> 
 	  
-      <input type="submit" name="Submit" value="送出" />
+    <!--<input type="submit" name="Submit" value="送出" /> -->
 	</form>
   </tr>
 </table>
