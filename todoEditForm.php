@@ -22,30 +22,53 @@ if (! $rs) {
 </head>
 <body>
 <h1>秘書審核</h1>
+<table width="200" border="1">
 <form method="post" action="commitcontrol.php">
 	  <input type='hidden' name='id' value='<?php echo $id ?>'>
-      stuid: <input name="stuid" type="text" id="msg" value="<?php echo htmlspecialchars($rs['stuid']);?>" readonly="readonly" /> <br>
-      contact: <input name="contact" type="text" id="msg" value="<?php echo htmlspecialchars($rs['contact']);?>" readonly="readonly"/> <br>
-	  famstatus: <input name="famstatus" type="text" id="msg" value="<?php echo htmlspecialchars($rs['famstatus']);?>" readonly="readonly"/> <br>
-	  <!--<select  name="famstatus" type="select" id="famstatus" /> 
+	  <tr><td>stuid</td><td><?php echo htmlspecialchars($rs['stuid']);?></td></tr>
+	  <tr><td>contact</td><td><?php echo htmlspecialchars($rs['contact']);?></td></tr>
+	  <tr><td>famstatus</td><td><?php echo htmlspecialchars($rs['famstatus']);?></td></tr>
+	  <tr><td>content</td><td><?php echo htmlspecialchars($rs['content']);?></td></tr>
+      <!--stuid: <input name="stuid" type="text" id="msg" value="<?php //echo htmlspecialchars($rs['stuid']);?>" readonly="readonly" /> <br>
+      contact: <input name="contact" type="text" id="msg" value="<?php //echo htmlspecialchars($rs['contact']);?>" readonly="readonly"/> <br>
+	  famstatus: <input name="famstatus" type="text" id="msg" value="<?php //echo htmlspecialchars($rs['famstatus']);?>" readonly="readonly"/> <br>
+	  <select  name="famstatus" type="select" id="famstatus" /> 
 				<?php
 					//echo "<option value='{$rs['famstatus']}'>{$rs['famtatus']}</option>";
 				?>
 					<option value='低收入戶'>低收入戶</option>
 					<option value='中低收入戶'>中低收入戶</option>
 					<option value='家庭突發因素'>家庭突發因素</option>
+<<<<<<< HEAD
+					</select> <br>
+	  content: <input name="content" type="text" id="msg" value="<?php //echo htmlspecialchars($rs['content']);?>" readonly="readonly"/> <br>-->
+	  <tr><td>exresult</td>
+	  <td><select name="exresult" type="select" id="msg" /> 
+	  <?php
+					echo "<option value='{$rs['exresult']}'>{$rs['exresult']}</option>";
+				?>
+					<option value='予以補助'>予以補助</option>
+					<option value='未符合補助條件'>未符合補助條件</option>
+					</select> </td>
+
+	  <!--exresult:<input list = 'exresult' name = 'exresult'>
+	  <datalist  name="exresult" type="select" id="msg" />
+=======
 					</select> <br>-->
 	  content: <input name="content" type="text" id="msg" value="<?php echo htmlspecialchars($rs['content']);?>" readonly="readonly"/> <br>
 	  exresult:<input list = "exresult" name = "exresult", id ="msg">
 	  <datalist  name="exresult" id="exresult" />
+>>>>>>> 60fc144523f4798520eeb5ae17fc0f15f8b63a09
 	  <option value='予以補助'>予以補助</option>
 	  <option value='未符合補助條件'>未符合補助條件</option>
-	  </datalist> <br>
-	  commit:<input name="commit" type="text" id="msg" value="<?php echo htmlspecialchars($rs['commit']);?>" /> <br>
-	   <input name="status" type="hidden" id="msg" value="<?php echo htmlspecialchars($rs['status']);?>" /> 
+	  </datalist> <br>-->
+	  <tr><td>commit</td>
+	  <td><input name="commit" type="text" id="msg" value="<?php echo htmlspecialchars($rs['commit']);?>" /> </td></tr>
+	  <!--<input name="status" type="hidden" id="msg" value="<?php //echo htmlspecialchars($rs['status']);?>" /> -->
 	  
-      <input type="submit" name="Submit" value="送出" />
+      <tr><td colspan="2"align="center"><input type="submit" name="Submit" value="送出" /></td></tr>
 	</form>
+	</table>
   </tr>
 </table>
 </body>

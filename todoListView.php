@@ -51,6 +51,7 @@ $jobStatus = array('審查中','已退回','已成功','已結案');
 	<td>famstatus</td>
     <td>content</td>
 	<td>exresult</td>
+	<td>money</td>
 	<td>commit</td>
 	<td>status</td>
 	<td>-</td>
@@ -66,17 +67,23 @@ while (	$rs=mysqli_fetch_assoc($result)) {
 	echo "<td>" , htmlspecialchars($rs['famstatus']), "</td>";
 	echo "<td>{$rs['content']}</td>" ;
 	echo "<td>" , htmlspecialchars($rs['exresult']), "</td>";
+	echo "<td>" , htmlspecialchars($rs['money']), "</td>";
 	echo "<td>" , htmlspecialchars($rs['commit']), "</td>";
 	echo "<td>{$jobStatus[$rs['status']]}</td><td>";
 	switch($rs['status']) {
 		//審核中
 		case 0:
 			if ($bossMode == 1) {
-				echo "<a href='todoSetControl.php?act=finish&id={$rs['id']}'>Agree</a>  ";	
-				echo "<a href='todoSetControl.php?act=reject&id={$rs['id']}'>Disagree</a>  " ;
+				if($rs['commit'] != null && $rs['content'] != null && $rs['exresult']!=null){
+					echo "<a href='todoSetControl.php?act=finish&id={$rs['id']}'>Agree</a>  ";	
+					echo "<a href='todoSetControl.php?act=reject&id={$rs['id']}'>Disagree</a>  " ;
+				}
 			}
 			else if($bossMode == 2) {
 				echo "<a href='todoEditForm.php?id={$rs['id']}'>Commit</a>  ";
+				if($rs['exresult']=="予以補助"){
+					echo "<a href='setmoney.php?id={$rs['id']}'>Money</a>  ";
+				}
 			}
 			else if($bossMode == 3){
 				echo "<a href='editcontent.php?id={$rs['id']}'>Description</a>  ";

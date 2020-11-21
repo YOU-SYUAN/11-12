@@ -13,8 +13,12 @@ function cancelJob($jobID) {
 	mysqli_query($conn,$sql);
 	//return T/F
 }
-
-function updateJob($id, $stuid, $contact, $famstatus, $content,$exresult,$commit) {
+function setmoney($id,$money){
+	global $conn;
+	$sql = "update student set money=$money where id=$id;";
+	mysqli_query($conn,$sql) or die("Insert failed, SQL query");
+}
+function updateJob($id, $stuid, $contact, $famstatus, $content) {
 	global $conn;
 	if ($id== -1) {
 		addJob($stuid, $contact, $famstatus, $content);
@@ -26,7 +30,7 @@ function updateJob($id, $stuid, $contact, $famstatus, $content,$exresult,$commit
 		mysqli_query($conn, $sql) or die("Insert failed, SQL query error");
 	}
 }
-function editcommit($id, $stuid, $contact, $famstatus, $content,$exresult,$commit) {
+function editcommit($id,$exresult,$commit) {
 	global $conn;
 	$sql = "update student set commit='$commit',exresult='$exresult' where id=$id;";
 	mysqli_query($conn, $sql) or die("Insert failed, SQL query error");
@@ -52,10 +56,12 @@ function getJobDetail($id) {
 			"famstatus" => "低收入戶",
 			"content" => "",
 			"commit" => "",
+			"exresult" =>"",
+			"money" => "0",
 			"status" => "0"
 		];
 	} else {
-		$sql = "select id, stuid, contact, famstatus, content,commit, status from student where id=$id;";
+		$sql = "select id, stuid, contact, famstatus, content,exresult,money,commit, status from student where id=$id;";
 		$result=mysqli_query($conn,$sql) or die("DB Error: Cannot retrieve message.");
 		$rs=mysqli_fetch_assoc($result);
 	}
