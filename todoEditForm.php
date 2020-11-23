@@ -39,7 +39,6 @@ if (! $rs) {
 					<option value='低收入戶'>低收入戶</option>
 					<option value='中低收入戶'>中低收入戶</option>
 					<option value='家庭突發因素'>家庭突發因素</option>
-<<<<<<< HEAD
 					</select> <br>
 	  content: <input name="content" type="text" id="msg" value="<?php //echo htmlspecialchars($rs['content']);?>" readonly="readonly"/> <br>-->
 	  <tr><td>exresult</td>
@@ -53,12 +52,6 @@ if (! $rs) {
 
 	  <!--exresult:<input list = 'exresult' name = 'exresult'>
 	  <datalist  name="exresult" type="select" id="msg" />
-=======
-					</select> <br>-->
-	  content: <input name="content" type="text" id="msg" value="<?php echo htmlspecialchars($rs['content']);?>" readonly="readonly"/> <br>
-	  exresult:<input list = "exresult" name = "exresult", id ="msg">
-	  <datalist  name="exresult" id="exresult" />
->>>>>>> 60fc144523f4798520eeb5ae17fc0f15f8b63a09
 	  <option value='予以補助'>予以補助</option>
 	  <option value='未符合補助條件'>未符合補助條件</option>
 	  </datalist> <br>-->
